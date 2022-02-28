@@ -27,6 +27,9 @@ class RandomGen(object):
         numbers roughly with the initialized probabilities.
         """
 
+        if len(self._random_nums) == 0:
+            raise ValueError("Not enough random numbers to generate from.")
+
         return random.choices(
             self._random_nums, weights=self._probabilities, k=1
         )[0]
